@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Home | Health Website</title>
+        <meta name="pagename" content="homeNav">
+        <link rel="stylesheet" href="../styles/universal.css">
+        <link rel="stylesheet" href="../styles/colours.css">
+        <link rel="stylesheet" href="../styles/home.css">
+        <script src="../scripts/header.js"></script>
+        <script src="../scripts/checkLogin.js"></script>
+        <script src="../scripts/APIFunctions.js"></script>
+        <script src="../scripts/homePage.js"></script>
+    </head> 
+    <body onload="updateHeader(); updateNav(); homepageWeather()">
+        <div class="background-image"></div>
+        <nav class="navigationMenu">
+            <h3 class="closeButton" onclick="toggleNav()">X</h3>
+            <div class="navigation-content">
+                <h1>Navigation</h1>
+                <hr>
+                <div class="navigation-links">
+                    <h3 id="homeNav" onclick="navigate(this)">Home</h3>
+                    <h3 id="weatherNav" onclick="navigate(this)">Weather</h3>
+                    <h3 id="airQNav" onclick="navigate(this)">Air Quality</h3>
+                    <h3 id="adviceNav" onclick="navigate(this)">Advice</h3>
+                    <h3 id="settingsNav" onclick="navigate(this)">Settings</h3>
+                </div>
+            </div>
+        </nav>
+        <header class="mainHeader">
+            <div class="headerMainContent">
+                <div class="left" onclick="homeClick()">
+                    <img class="logo-img" src="../images/logoWhite.png">
+                </div>
+                <div class="right">
+                    <div class="profileImageContainer" id="userProfile" onclick="profileClick()">
+                        <img src="../images/user.png" class="noAccountImage">
+                    </div>
+                    <img src="../images/BurgerMenuWhite.png" class="burgerMenu" onclick="toggleNav()">
+                </div>
+            </div>
+        </header>
+        <main class="main-wrapper">
+            <div class="main-content">
+                <div class="left-container">
+                    <h1>We're the Health Advice Group.</h1>
+                    <h3>A charity dedicated to informing you about environmental health and how you can stay safe during tough conditions.</h3>
+                </div>
+                <div class="right-container">
+                    <h1>The Weather Near You</h1>
+                    <hr style="width: 100%;">
+                    <div class="current-weather-container">
+                        <div class="cw-name">
+                            <h1 class="cw-place-name">[place name]</h1>
+                            <h2 class="rn">Right Now:</h2>
+                        </div>
+                        <div class="cw-weather">
+                            <h1 id="cw-number">XX°C</h1>
+                        </div>
+                    </div>
+                    <hr style="width: 100%;">
+                    <h2 style="text-decoration: underline;">Forecast</h2>
+                    <div class="weather-hour-forecast">
+                        <div class="forecast-section" style="display: none;">
+                            <img class="img-forecast" src="">
+                            <h3>XX°C</h3>
+                            <h3>00:00</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </body>
+</html>

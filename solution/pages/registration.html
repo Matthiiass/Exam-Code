@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Login / Signup | Health Website</title>
+        <meta name="pagename" content="registration">
+        <link rel="stylesheet" href="../styles/universal.css">
+        <link rel="stylesheet" href="../styles/colours.css">
+        <link rel="stylesheet" href="../styles/registration.css">
+        <script src="../scripts/header.js"></script>
+        <script src="../scripts/checkLogin.js"></script>
+        <script src="../scripts/APIFunctions.js"></script>
+        <script src="../scripts/loginSignup.js"></script>
+    </head>
+    <body onload="checkAlreadyLoggedIn(); updateHeader(); updateNav();">
+        <div class="background-image"></div>
+        <nav class="navigationMenu">
+            <h3 class="closeButton" onclick="toggleNav()">X</h3>
+            <div class="navigation-content">
+                <h1>Navigation</h1>
+                <hr>
+                <div class="navigation-links">
+                    <h3 id="homeNav" onclick="navigate(this)">Home</h3>
+                    <h3 id="weatherNav" onclick="navigate(this)">Weather</h3>
+                    <h3 id="airQNav" onclick="navigate(this)">Air Quality</h3>
+                    <h3 id="adviceNav" onclick="navigate(this)">Advice</h3>
+                    <h3 id="settingsNav" onclick="navigate(this)">Settings</h3>
+                </div>
+            </div>
+        </nav>
+        <header class="mainHeader">
+            <div class="headerMainContent">
+                <div class="left" onclick="homeClick()">
+                    <img class="logo-img" src="../images/logoWhite.png">
+                </div>
+                <div class="right">
+                    <div class="profileImageContainer" id="userProfile" onclick="profileClick()">
+                        <img src="../images/user.png" class="noAccountImage">
+                    </div>
+                    <img src="../images/BurgerMenuWhite.png" class="burgerMenu" onclick="toggleNav()">
+                </div>
+            </div>
+        </header>
+        <main class="main-wrapper">
+            <div class="main-content">
+                <div class="registration-container" id="login-box" style="display: none;">
+                    <h1>Login to your account</h1>
+                    <hr style="width: 100%;">
+                    <div class="regi-login-area">
+                        <input type="text" placeholder="Email" id="loginUsername" onchange="checkLoginInfo()"">
+                        <input type="password" placeholder="Password" id="loginPassword" onchange="checkLoginInfo()">
+                        <h2 id="login-error-message">Message Here</h2>
+                        <button id="loginButton" disabled onclick="login()">Login</button>
+                    </div>
+                    <hr style="width: 100%;">
+                    <div class="regi-redirect">
+                        <h3>Don't have an account? Create one here!</h3>
+                        <button onclick="swapDisplay()">Create an account</button>
+                    </div>
+                </div>
+                <div class="registration-container" id="register-box">
+                    <h1>Create an account</h1>
+                    <hr style="width: 100%;">
+                    <div class="regi-login-area">
+                        <input type="text" placeholder="Email" id="signUpUsername" onchange="checkSignupInfo()"">
+                        <input type="password" placeholder="Password" id="signUpPassword" onchange="checkSignupInfo()">
+                        <input type="password" placeholder="Confirm Password" id="signUpPasswordConf" onchange="checkSignupInfo()">
+                        <h2 id="register-error-message">Message Here</h2>
+                        <button id="signUpButton" disabled onclick="signup()">Create Account</button>
+                    </div>
+                    <hr style="width: 100%;">
+                    <div class="regi-redirect">
+                        <h3>Already have an account? Login here!</h3>
+                        <button onclick="swapDisplay()">Login</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </body>
+</html>

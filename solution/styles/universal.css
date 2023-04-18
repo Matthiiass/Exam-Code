@@ -1,0 +1,144 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;200;300;400;500;600;700&display=swap');
+
+/* GENERAL CHANGES */
+h1, h2,
+h3, h4,
+body {
+    margin: 0;
+}
+
+body {
+    font-family: 'Josefin Sans', sans-serif;
+    color: aliceblue;
+}
+
+
+/* HEADER */
+
+.mainHeader {
+    width: 100%;
+    background-color: var(--nearly-black-trans);
+    display: inline-flex;
+    justify-content: center;
+    max-height: 96px;
+}
+
+.headerMainContent {
+    width: min(50rem, 100%);
+    display: inline-flex;
+    justify-content: space-between;
+}
+
+.right {
+    display: inline-flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.75rem;
+}
+
+.left {
+    padding: 0.25rem;
+    cursor: pointer;
+}
+
+.logo-img {
+    height: 100%;
+}
+
+.profileImageContainer {
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    border: 4px solid #b9c5da;
+    overflow: hidden;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    background-color: aliceblue;
+    cursor: pointer;
+}
+
+.noAccountImage {
+    height: 70%;
+}
+
+.accountImage {
+    height: 100%;
+}
+
+.burgerMenu {
+    height: 3rem;
+    cursor: pointer;
+}
+
+/* NAVIGATION PANEL */
+
+.navigationMenu {
+    height: 100%;
+    width: 0;
+    /* display: none; */
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    background-color: rgba(19, 19, 19, 0.603);
+    /* border-left: 2px solid aliceblue; */
+    overflow-x: hidden;
+    transition: width 0.5s;
+    padding-top: 4rem;
+}
+
+.navigationMenu-open {
+    width: min(30rem, 100%);
+}
+
+.closeButton {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    cursor: pointer;
+}
+
+.navigation-content {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+}
+.navigation-content h1 {
+    font-size: 2.5rem;
+}
+
+.navigation-links {
+    display: inline-flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 4rem;
+}
+
+.navigation-links h3 {
+    font-size: 1.75rem;
+    cursor: pointer;
+}
+
+.navigation-links h3::before {
+     content: '- ';
+}
+
+.selectedLink {
+    color: #9eff9e;
+}
+
+.background-image {
+    background-image: url(../images/background.jpg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: fixed;
+    top: 0;
+    height: 100vh;
+    width: 100vw;
+    z-index: -9999;
+    filter: blur(5px);
+    transform: scale(1.05);
+}

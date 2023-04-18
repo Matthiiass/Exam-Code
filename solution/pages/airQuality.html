@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Air Quality | Health Website</title>
+        <meta name="pagename" content="airQNav">
+        <link rel="stylesheet" href="../styles/universal.css">
+        <link rel="stylesheet" href="../styles/colours.css">
+        <link rel="stylesheet" href="../styles/weather.css">
+        <link rel="stylesheet" href="../styles/quality.css">
+        <script src="../scripts/header.js"></script>
+        <script src="../scripts/checkLogin.js"></script>
+        <script src="../scripts/APIFunctions.js"></script>
+        <script src="../scripts/weatherDash.js"></script>
+        <script src="../scripts/airQuality.js"></script>
+    </head>
+    <body onload="updateHeader(); updateNav(); populateLocationMenu();">
+        <div class="background-image"></div>
+        <nav class="navigationMenu">
+            <h3 class="closeButton" onclick="toggleNav()">X</h3>
+            <div class="navigation-content">
+                <h1>Navigation</h1>
+                <hr>
+                <div class="navigation-links">
+                    <h3 id="homeNav" onclick="navigate(this)">Home</h3>
+                    <h3 id="weatherNav" onclick="navigate(this)">Weather</h3>
+                    <h3 id="airQNav" onclick="navigate(this)">Air Quality</h3>
+                    <h3 id="adviceNav" onclick="navigate(this)">Advice</h3>
+                    <h3 id="settingsNav" onclick="navigate(this)">Settings</h3>
+                </div>
+            </div>
+        </nav>
+        <header class="mainHeader">
+            <div class="headerMainContent">
+                <div class="left" onclick="homeClick()">
+                    <img class="logo-img" src="../images/logoWhite.png">
+                </div>
+                <div class="right">
+                    <div class="profileImageContainer" id="userProfile" onclick="profileClick()">
+                        <img src="../images/user.png" class="noAccountImage">
+                    </div>
+                    <img src="../images/BurgerMenuWhite.png" class="burgerMenu" onclick="toggleNav()">
+                </div>
+            </div>
+        </header>
+        <main class="main-wrapper">
+            <div class="main-content">
+                <div class="location-select">
+                    <div class="location-area">
+                        <h1>Select a Location.</h1>
+                        <select id="location-menu" onchange="checkValidLocation()">
+                            <option value="none"></option>
+                        </select>
+                    </div>
+                    <h3>OR</h3>
+                    <div class="coords-area">
+                        <h1>Enter coordinates</h1>
+                        <h4>Coordinates take priority over location.</h4>
+                        <div>
+                            <input type="number" placeholder="Latitude" id="latInp" onchange="checkValidLocation()">
+                            <input type="number" placeholder="Longitude" id="longInp" onchange="checkValidLocation()">
+                        </div>
+                        <button type="button" id="getWeatherButton" disabled onclick="getAirQuality()">Check Air Quality</button>
+                    </div>
+                </div>
+                <div class="quality-container" style="display: none;">
+                    <div class="displays">
+                        <div class="main-display">
+                            <h1>Overall Air Quality Rating</h1>
+                            <div class="quality-rating" style="height: 200px; width: 200px;">
+                            </div>
+                            <h1 class="quality-title">
+                                Good
+                            </h1>
+                            <h3>It is safe for all people to go outside.</h3>
+                        </div>
+                        <div class="quality-rating-container">
+                            <div class="grid-area" id="so2">
+                                <div class="quality-rating">
+                                    <h2>xxx</h2>
+                                </div>
+                                <h2 class="quality-title">SO<sub>2</sub></h2>
+                            </div>
+                            <div class="grid-area" id="no2">
+                                <div class="quality-rating">
+                                    <h2>xxx</h2>
+                                </div>
+                                <h2 class="quality-title">NO<sub>2</sub></h2>
+                            </div>
+                            <div class="grid-area" id="pm10">
+                                <div class="quality-rating">
+                                    <h2>xxx</h2>
+                                </div>
+                                <h2 class="quality-title">PM<sub>10</sub></h2>
+                            </div>
+                            <div class="grid-area" id="pm2_5">
+                                <div class="quality-rating">
+                                    <h2>xxx</h2>
+                                </div>
+                                <h2 class="quality-title">PM<sub>2.5</sub></h2>
+                            </div>
+                            <div class="grid-area" id="o3">
+                                <div class="quality-rating">
+                                    <h2>xxx</h2>
+                                </div>
+                                <h2 class="quality-title">O<sub>3</sub></h2>
+                            </div>
+                            <div class="grid-area" id="co">
+                                <div class="quality-rating">
+                                    <h2>xxx</h2>
+                                </div>
+                                <h2 class="quality-title">CO</h2>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="keys">
+                        <div class="key-item">
+                            <div class="colour-box" style="background-color: #75d661;"></div>
+                            <h3>Good</h3>
+                        </div>
+                        <div class="key-item">
+                            <div class="colour-box" style="background-color: #e6c63a;"></div>
+                            <h3>Fair</h3>
+                        </div>
+                        <div class="key-item">
+                            <div class="colour-box" style="background-color: #e9872c;"></div>
+                            <h3>Moderate</h3>
+                        </div>
+                        <div class="key-item">
+                            <div class="colour-box" style="background-color: #ee3d3d;"></div>
+                            <h3>Poor</h3>
+                        </div>
+                        <div class="key-item">
+                            <div class="colour-box" style="background-color: #e15fe6;"></div>
+                            <h3>Very Poor</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </body>
+</html>

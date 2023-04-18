@@ -1,0 +1,108 @@
+.main-wrapper {
+    width: 100%;
+    display: inline-flex;
+    justify-content: center;
+    margin-top: 10rem;
+}
+
+.main-content {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1300px;
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 3rem;
+}
+
+.left-container {
+    padding: 1.5rem;
+    border-radius: 1rem;
+    background-color: var(--nearly-black-trans);
+    width: 55%;
+    display: inline-flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.left-container h3 {
+    font-weight: 400;
+}
+
+.right-container {
+    padding: 1.5rem;
+    border-radius: 1rem;
+    background-color: var(--nearly-black-trans);
+    width: 45%;
+    display: inline-flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.current-weather-container {
+    width: 85%;
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.cw-name {
+    display: inline-flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.rn {
+    font-weight: 400;
+}
+
+.cw-weather {
+    /* background-image: url('../images/suny.png'); */
+    background-size: calc(6rem + 25px);
+    background-position: center center;
+    background-repeat: no-repeat;
+    height: 6rem;
+    width: 6rem;
+    display: inline-flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+}
+
+#cw-number {
+    transform: translate(-25%, -15%);
+    text-shadow: 2px 2px 5px black;
+    font-size: 2.2rem;
+    font-weight: 400;
+}
+
+.weather-hour-forecast {
+    width: 80%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.forecast-section {
+    display: inline-flex;
+    flex-direction: column;
+    padding: 0.5rem;
+    align-items: center;
+    gap: 1rem;
+}
+
+.img-forecast {
+    height: 3rem;
+    transform: scale(2);
+}
+
+@media screen and (max-width: 890px) {
+    .main-content {
+        flex-direction: column;
+    }
+
+    .left-container,
+    .right-container {
+        width: 80%;
+    }
+}
